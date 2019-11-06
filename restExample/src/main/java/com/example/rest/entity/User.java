@@ -20,7 +20,7 @@ public class User {
     @Id // primaryKey 지정
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     // pk 생성전략을 DB에 위임함 (MYSQL : auto_increment)
-    private long msrl;
+    private Integer idx;
     @Column(nullable = false, unique = true, length = 30)
     // uid column 을 명시함. NN, UQ, length 30
     private String uid;
