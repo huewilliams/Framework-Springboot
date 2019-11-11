@@ -1,6 +1,7 @@
 package com.example.rest.controller.v1;
 
 import com.example.rest.entity.User;
+import com.example.rest.exception.UserNotFoundException;
 import com.example.rest.model.response.CommonResult;
 import com.example.rest.model.response.ListResult;
 import com.example.rest.model.response.SingleResult;
@@ -38,8 +39,8 @@ public class UserController {
 
     @ApiOperation(value = "회원 단건 조회", notes = "userId로 회원을 조회한다.")
     @GetMapping(value = "/user/{idx}")
-    public SingleResult<User> findUserById(@ApiParam(value = "회원 고유 ID", required = true) @PathVariable Integer idx ) {
-        return responseService.getSingleResult(userJpaRepo.findById(idx).orElse(null));
+    public SingleResult<User> findUserById(@ApiParam(value = "회원 고유 ID", required = true) @PathVariable Integer idx)  {
+        return responseService.getSingleResult(userJpaRepo.findById(idx).orElseThrow(UserNotFoundException::new));
     }
 
     @ApiOperation(value = "회원 생성", notes = "새로운 회원을 추가함.")
