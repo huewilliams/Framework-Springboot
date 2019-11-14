@@ -1,4 +1,4 @@
-package com.example.rest.exception;
+package com.example.rest.advice.exception;
 
 public class UserNotFoundException extends RuntimeException {
     public UserNotFoundException(String msg, Throwable t) {

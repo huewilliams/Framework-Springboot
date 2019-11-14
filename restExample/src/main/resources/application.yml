@@ -15,3 +15,5 @@ spring:
           auto: update
     # JPA가 실행하는 쿼리를 console 로그로 출력
     show-sql: true
+  jwt:
+    secret: hueJwtSecret
