@@ -33,7 +33,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS) // jwt 인증이므로 세션 생성 안함.
                 .and()
                     .authorizeRequests() // 다음 리퀘스트에 대한 사용권한 체크
-                        .antMatchers("/*/signin", "/*/signup").permitAll() // 가입/인증은 누구나 접근 가능
+                        .antMatchers("/*/signin", "/*/signup", "/social/**").permitAll() // 가입/인증은 누구나 접근 가능
                         .antMatchers(HttpMethod.GET, "/exception/**","helloworld/**").permitAll() // helloworld로 시작하는 GET 요청 허용
                         .antMatchers("/*/users").hasRole("ADMIN")
                         .anyRequest().hasRole("USER") // 그외 나머지 요청은 인증된 회원만 접근 가능

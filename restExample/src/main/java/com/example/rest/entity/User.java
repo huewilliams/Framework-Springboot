@@ -35,10 +35,16 @@ public class User implements UserDetails {
     @Column(nullable = false, unique = true, length = 30)
     // uid column 을 명시함. NN, UQ, length 30
     private String uid;
-    @Column(nullable = false, length = 100)
+    @Column(nullable = true, length = 100)
     private String password;
     @Column(nullable = false, length = 100)
     private String name;
+    @Column(nullable = false)
+    private Integer coin;
+    @Column(nullable = false)
+    private Integer exp;
+    @Column(nullable = false)
+    private Integer score;
 
     @ElementCollection(fetch = FetchType.EAGER)
     @Builder.Default

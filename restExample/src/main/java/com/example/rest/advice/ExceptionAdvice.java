@@ -1,8 +1,6 @@
 package com.example.rest.advice;
 
-import com.example.rest.advice.exception.AuthenticationEntryPointException;
-import com.example.rest.advice.exception.EmailSigninFailedException;
-import com.example.rest.advice.exception.UserNotFoundException;
+import com.example.rest.advice.exception.*;
 import com.example.rest.model.response.CommonResult;
 import com.example.rest.service.ResponseService;
 import lombok.RequiredArgsConstructor;
@@ -48,6 +46,17 @@ public class ExceptionAdvice {
     @ExceptionHandler(AccessDeniedException.class)
     public CommonResult AccessDeniedException(HttpServletRequest request, AccessDeniedException e) {
         return responseService.getFailResult(-1003, "보유한 권한으로 접근할수 없는 리소스 입니다.");
+    }
+
+    @ExceptionHandler(CommunicationException.class)
+    public CommonResult CommunicationException(HttpServletRequest request, CommunicationException e) {
+        return responseService.getFailResult(-1004, "OAuth 통신 중 오류가 발생하였습니다.");
+    }
+
+    @ExceptionHandler(UserExistException.class)
+    @ResponseStatus(HttpStatus.CONFLICT)
+    public CommonResult UserExistException(HttpServletRequest request, UserExistException e) {
+        return responseService.getFailResult(-1005, "이미 가입한 회원입니다.");
     }
 
     @ExceptionHandler(Exception.class)
