@@ -1,6 +1,21 @@
-plugins {
-    id 'java'
+buildscript {
+    ext {
+        springBootVersion = '2.1.7.RELEASE'
+    } // ext : 전역 변수 설정
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
 }
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+// 스프링부트의 필수 플러그인
 
 group 'com.springboot.book'
 version '1.0-SNAPSHOT'
@@ -9,8 +24,9 @@ sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
-}
+} // repositories : 의존성을 받을 원격 저장소
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
-}
+    compile('org.springframework.boot:spring-boot-starter-web')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+} // dependencies : 프로젝트의 의존성 선언, 특정 버전을 명시하지 않아야 위에 설정한 버전을 따라가게 됨.
