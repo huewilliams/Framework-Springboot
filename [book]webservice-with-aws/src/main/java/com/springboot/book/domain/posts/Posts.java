@@ -1,5 +1,6 @@
 package com.springboot.book.domain.posts;
 
+import com.springboot.book.domain.BaseTimeEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,7 +12,7 @@ import javax.persistence.*;
 @Entity
 // 테이블과 매칭될 Entity 클래스임을 명시
 // 클래스의 카멜케이스 이름을 언더스코어 네이밍으로 테이블 매칭(SalesManager.Java -> sales_manager table)
-public class Posts {
+public class Posts extends BaseTimeEntity {
 
     @Id // 해당 테이블의 PK 필드
     @GeneratedValue(strategy = GenerationType.IDENTITY)
