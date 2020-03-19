@@ -32,5 +32,6 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-data-jpa')
     compile('com.h2database:h2') // h2 : 인메모리 RDB, 애플리케이션 재시작마다 초기화됨.
     compile('org.springframework.boot:spring-boot-starter-mustache')
+    compile('org.springframework.boot:spring-boot-starter-oauth2-client') // oauth2 client
     testCompile('org.springframework.boot:spring-boot-starter-test')
 } // dependencies : 프로젝트의 의존성 선언, 특정 버전을 명시하지 않아야 위에 설정한 버전을 따라가게 됨.
