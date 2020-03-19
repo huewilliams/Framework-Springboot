@@ -1,9 +1,13 @@
 package com.springboot.book.web;
 
+import com.springboot.book.config.auth.SecurityConfig;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.FilterType;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -13,13 +17,17 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @RunWith(SpringRunner.class)
 // 테스트 실행시 SpringRunner 라는 스프링 실행자를 사용한다.(Spring과 JUnit 간의 연결)
-@WebMvcTest(controllers = HelloController.class)
+@WebMvcTest(controllers = HelloController.class,
+        excludeFilters = {
+        @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = SecurityConfig.class)
+        })
 // webMVC에 집중 가능한 테스트 어노테이션 (@Controller, @ControllerAdvice 사용 가능)
 public class HelloControllerTest {
 
     @Autowired // 스프링이 관리하는 Bean을 주입받는다.
     private MockMvc mvc; // API 테스트 시 사용되는 클래스(테스트의 시작점)
 
+    @WithMockUser(roles = "USER")
     @Test
     public void return_hello() throws Exception {
         String hello = "hello";
@@ -31,6 +39,7 @@ public class HelloControllerTest {
                 // mvc.perform의 결과 검증(응답 본문의 내용이 "hello"인지 검증)
     }
 
+    @WithMockUser(roles = "USER")
     @Test
     public void return_helloDto() throws Exception {
         String name = "hello";
