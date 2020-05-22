@@ -78,7 +78,7 @@ public class PostsApiControllerTest {
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .content(new ObjectMapper().writeValueAsString(requestDto)))
                 // Body 영역을 문자열로 표현하기 위해 ObjectMapper를 통해 문자열 JSON으로 변환함함
-               .andExpect(status().isOk());
+                .andExpect(status().isOk());
 
         // then
         List<Posts> all = postsRepository.findAll();
@@ -123,7 +123,7 @@ public class PostsApiControllerTest {
     @Test
     public void BaseTimeEntity_test() {
         // given
-        LocalDateTime now = LocalDateTime.of(2020,1,1,0,0,0);
+        LocalDateTime now = LocalDateTime.of(2020, 1, 1, 0, 0, 0);
         postsRepository.save(Posts.builder()
                 .title("test title")
                 .content("test content")

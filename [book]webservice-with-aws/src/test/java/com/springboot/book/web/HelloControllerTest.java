@@ -19,7 +19,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 // 테스트 실행시 SpringRunner 라는 스프링 실행자를 사용한다.(Spring과 JUnit 간의 연결)
 @WebMvcTest(controllers = HelloController.class,
         excludeFilters = {
-        @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = SecurityConfig.class)
+                @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = SecurityConfig.class)
         })
 // webMVC에 집중 가능한 테스트 어노테이션 (@Controller, @ControllerAdvice 사용 가능)
 public class HelloControllerTest {
@@ -36,7 +36,7 @@ public class HelloControllerTest {
                 .andExpect(status().isOk())
                 // mvc.perform의 결과 검증(HTTP Header의 status가 200인지 검증)
                 .andExpect(content().string(hello));
-                // mvc.perform의 결과 검증(응답 본문의 내용이 "hello"인지 검증)
+        // mvc.perform의 결과 검증(응답 본문의 내용이 "hello"인지 검증)
     }
 
     @WithMockUser(roles = "USER")
@@ -51,6 +51,6 @@ public class HelloControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.name", is(name)))
                 .andExpect(jsonPath("$.amount", is(amount)));
-                // jsonPath : JSON 응답값을 필드별로 검증하는 메소드($를 기준으로 필드명 명시)
+        // jsonPath : JSON 응답값을 필드별로 검증하는 메소드($를 기준으로 필드명 명시)
     }
 }

@@ -29,12 +29,12 @@
         </thead>
         <tbody id="tbody">
         {{#posts}} <!-- posts 라는 List를 순회함.-->
-            <tr>
-                <td>{{id}}</td> <!-- List 에서 뽑아낸 객체의 속성을 사용함-->
-                <td><a href="/posts/update/{{id}}">{{title}}</a></td>
-                <td>{{author}}</td>
-                <td>{{modifiedDate}}</td>
-            </tr>
+        <tr>
+            <td>{{id}}</td> <!-- List 에서 뽑아낸 객체의 속성을 사용함-->
+            <td><a href="/posts/update/{{id}}">{{title}}</a></td>
+            <td>{{author}}</td>
+            <td>{{modifiedDate}}</td>
+        </tr>
         {{/posts}}
         </tbody>
     </table>
