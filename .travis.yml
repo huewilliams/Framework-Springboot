@@ -13,7 +13,7 @@ cache:
     - '$HOME/.gradle'
 
 script: 
-  - "cd [book]webservice-with-aws"
+  - "ls -al"
   - "./gradle clean build"
 
 # CI 실행 완료 시 메일로 알람
