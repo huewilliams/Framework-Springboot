@@ -12,9 +12,8 @@ cache:
     - '$HOME/.m2/repository'
     - '$HOME/.gradle'
 
-before_script: "cd ./[book]webservice-with-aws"
-
-before_install:
+before_script: 
+  - "cd ./[book]webservice-with-aws"
   - chmod +x gradlew
 
 script: "./gradlew clean build"
