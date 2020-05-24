@@ -13,7 +13,11 @@ cache:
     - '$HOME/.gradle'
 
 before_script: "cd ./[book]webservice-with-aws"
-script: "chmod +x ./gradlew clean build"
+
+before_install:
+  - chmod +x gradlew
+
+script: "./gradlew clean build"
 
 # CI 실행 완료 시 메일로 알람
 notifications:
