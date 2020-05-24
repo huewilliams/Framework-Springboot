@@ -12,7 +12,9 @@ cache:
     - '$HOME/.m2/repository'
     - '$HOME/.gradle'
 
-script: "./gradle clean build"
+script: 
+  - "cd [book]webservice-with-aws"
+  - "./gradle clean build"
 
 # CI 실행 완료 시 메일로 알람
 notifications:
