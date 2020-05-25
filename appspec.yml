@@ -1,0 +1,6 @@
+version: 0.0 # CodeDeploy version
+os: linux
+files:
+    - source: /
+      destination: /home/ec2-user/server/Master-SpringBoot/zip/
+      overwrite: yes
