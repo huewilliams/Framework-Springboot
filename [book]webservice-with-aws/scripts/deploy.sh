@@ -25,7 +25,7 @@ echo "> 새 애플리케이션 배포"
 cd $REPOSITORY/[book]webservice-with-aws
 ls -al
 
-JAR_NAME=$(ls -tr $TEST/*.jar | tail -n 1)
+JAR_NAME=$(ls -tr *.jar | tail -n 1)
 
 echo "> JAR NAME : $JAR_NAME"
 
