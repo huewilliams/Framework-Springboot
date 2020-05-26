@@ -21,6 +21,7 @@ fi
 
 echo "> 새 애플리케이션 배포"
 
+cd $REPOSITORY/[book]webservice-with-aws
 ls -al
 
 JAR_NAME=$(ls -tr $REPOSITORY/[book]webservice-with-aws/*.jar | tail -n 1)
@@ -32,7 +33,5 @@ echo "> $JAR_NAME에 실행권한 추가"
 chmod +x $JAR_NAME
 
 echo "> $JAR_NAME 실행"
-
-cd $REPOSITORY/[book]webservice-with-aws
 
 sudo nohup java -jar -Dspring.config.location=classpath:/application.properties,classpath:/application-real.properties,application-oauth.properties,application-real-db.properties -Dspring.profiles.active=real $JAR_NAME > nohup.out 2>&1
