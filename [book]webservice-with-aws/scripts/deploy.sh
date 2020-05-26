@@ -16,7 +16,7 @@ if [ -z "$CURRENT_PID" ]; then
     echo "> 현재 구동중인 애플리케이션이 없으므로 종료하지 않습니다."
 else
     echo "> kill -15 $CURRENT_PID"
-    kill -15 $CURRENT_PID
+    sudo kill -15 $CURRENT_PID
     sleep 5
 fi
 
@@ -39,4 +39,4 @@ echo "> $JAR_NAME 실행"
 sudo nohup java -jar \
     -Dspring.config.location=classpath:/application.properties,classpath:/application-real.properties,application-oauth.properties,application-real-db.properties \
     -Dspring.profiles.active=real \
-    $JAR_NAME 2>&1 &
+    $JAR_NAME 1> /dev/null 2>&1 &
