@@ -33,4 +33,4 @@ echo "> $JAR_NAME 실행"
 
 cd $REPOSITORY/[book]webservice-with-aws
 
-sudo nohup java -jar -Dspring.config.location=classpath:/application.properties,classpath:/application-real.properties,$REPOSITORY/application-oauth.properties,$REPOSITORY/application-real-db.properties -Dspring.profiles.active=real $JAR_NAME > $REPOSITORY/nohup.out 2>&1 &
+sudo nohup java -jar -Dspring.config.location=classpath:/application.properties,classpath:/application-real.properties,application-oauth.properties,application-real-db.properties -Dspring.profiles.active=real $JAR_NAME > nohup.out 2>&1
