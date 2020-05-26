@@ -3,7 +3,7 @@ PROJECT_NAME=webservice-with-aws
 
 echo "> Build 파일 복사"
 
-sudo cp $REPOSITORY/zip/*.jar $REPOSITORY/
+sudo cp $REPOSITORY/zip/*.jar $REPOSITORY/[book]webservice-with-aws
 
 echo "> 현재 구동중인 애플리케이션 pid 확인"
 
@@ -31,6 +31,6 @@ chmod +x $JAR_NAME
 
 echo "> $JAR_NAME 실행"
 
-cd $REPOSITORY
+cd $REPOSITORY/[book]webservice-with-aws
 
 sudo nohup java -jar -Dspring.config.location=classpath:/application.properties,classpath:/application-real.properties,$REPOSITORY/application-oauth.properties,$REPOSITORY/application-real-db.properties -Dspring.profiles.active=real $JAR_NAME > $REPOSITORY/nohup.out 2>&1 &
