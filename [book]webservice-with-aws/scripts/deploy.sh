@@ -1,6 +1,6 @@
 REPOSITORY=/home/ec2-user/server/Master-SpringBoot
 PROJECT_NAME=webservice-with-aws
-TEST=/home/ec2-user/server/Master-SpringBoot/[book]webservice-with-aws
+TEST=/home/ec2-user/server/Master-SpringBoot/\[book\]webservice-with-aws
 
 echo "> Build 파일 복사"
 
