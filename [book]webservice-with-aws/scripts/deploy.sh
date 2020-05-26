@@ -31,7 +31,7 @@ echo "> JAR NAME : $JAR_NAME"
 
 echo "> $JAR_NAME에 실행권한 추가"
 
-chmod +x $JAR_NAME
+sudo chmod u+x $JAR_NAME
 
 echo "> $JAR_NAME 실행"
 
