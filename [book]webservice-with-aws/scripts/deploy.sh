@@ -34,5 +34,8 @@ echo "> $JAR_NAME에 실행권한 추가"
 sudo chmod u+x $JAR_NAME
 
 echo "> $JAR_NAME 실행"
-sudo su
-sudo nohup java -jar -Dspring.config.location=classpath:/application.properties,classpath:/application-real.properties,application-oauth.properties,application-real-db.properties -Dspring.profiles.active=real $JAR_NAME 2>&1
+
+sudo nohup java -jar \
+    -Dspring.config.location=classpath:/application.properties,classpath:/application-real.properties,application-oauth.properties,application-real-db.properties \
+    -Dspring.profiles.active=real \
+    $JAR_NAME > $REPOSITORY/nohup.out 2>&1 &
