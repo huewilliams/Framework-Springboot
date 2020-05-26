@@ -1,5 +1,6 @@
 REPOSITORY=/home/ec2-user/server/Master-SpringBoot
 PROJECT_NAME=webservice-with-aws
+TEST=/home/ec2-user/server/Master-SpringBoot/[book]webservice-with-aws
 
 echo "> Build 파일 복사"
 
@@ -24,7 +25,7 @@ echo "> 새 애플리케이션 배포"
 cd $REPOSITORY/[book]webservice-with-aws
 ls -al
 
-JAR_NAME=$(ls -tr $REPOSITORY/[book]webservice-with-aws/*.jar | tail -n 1)
+JAR_NAME=$(ls -tr $TEST/*.jar | tail -n 1)
 
 echo "> JAR NAME : $JAR_NAME"
 
