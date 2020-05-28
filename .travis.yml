@@ -1,57 +1,59 @@
-language: java
-jdk:
-  - openjdk8
+# [book]webservice-with-aws 용 .travis.yml
 
-branches:
-  only:
-    - master # master 브랜치에 push 될 경우에만 수행
+# language: java
+# jdk:
+#   - openjdk8
 
-# Travis CI 서버의 Home
-cache:
-  directories:
-    - '$HOME/.m2/repository'
-    - '$HOME/.gradle'
+# branches:
+#   only:
+#     - master # master 브랜치에 push 될 경우에만 수행
 
-before_script: 
-  - "cd ./[book]webservice-with-aws"
-  - chmod +x gradlew
+# # Travis CI 서버의 Home
+# cache:
+#   directories:
+#     - '$HOME/.m2/repository'
+#     - '$HOME/.gradle'
 
-script: "./gradlew clean build"
+# before_script: 
+#   - "cd ./[book]webservice-with-aws"
+#   - chmod +x gradlew
 
-before_deploy:
-  - mkdir -p before-deploy # zip에 포함시킬 파일들을 담을 디렉토리 생성
-  - cp scripts/*.sh before-deploy/
-  - cp appspec.yml before-deploy/
-  - cp build/libs/*.jar before-deploy/
-  - cd before-deploy && zip -r before-deploy * # before-deploy 이동 후 전체 압축
-  - cd ../ && mkdir -p deploy # 상위 디렉토리로 이동 후 deploy 디렉토리 생성
-  - mv before-deploy/before-deploy.zip deploy/webservice-with-aws.zip #deploy로 zip파일 이동
+# script: "./gradlew clean build"
 
-deploy:
-  - provider: s3
-    access_key_id: $AWS_ACCESS_KEY # Travis repo settings에 설정된 값
-    secret_access_key: $AWS_SECRET_KEY # Travis repo settings에 설정된 값
-    bucket: springboot-practice-jar # S3 버킷 
-    region: ap-northeast-2
-    skip_cleanup: true
-    acl: private # zip 파일 접근을 private으로
-    local_dir: deploy # before_deploy에서 생성한 디렉토리
-    wait-until-deployed: true
+# before_deploy:
+#   - mkdir -p before-deploy # zip에 포함시킬 파일들을 담을 디렉토리 생성
+#   - cp scripts/*.sh before-deploy/
+#   - cp appspec.yml before-deploy/
+#   - cp build/libs/*.jar before-deploy/
+#   - cd before-deploy && zip -r before-deploy * # before-deploy 이동 후 전체 압축
+#   - cd ../ && mkdir -p deploy # 상위 디렉토리로 이동 후 deploy 디렉토리 생성
+#   - mv before-deploy/before-deploy.zip deploy/webservice-with-aws.zip #deploy로 zip파일 이동
 
-  - provider: codedeploy
-    access_key_id: $AWS_ACCESS_KEY # Travis repo settings에 설정된 값
-    secret_access_key: $AWS_SECRET_KEY # Travis repo settings에 설정된 값
-    bucket: springboot-practice-jar # S3 버킷 
-    key: webservice-with-aws.zip # 빌드 파일을 압축해서 전달
-    bundle_type: zip
-    application: springboot-webservice-practice # 웹 콘솔에서 등록한 CodeDeploy 애플리케이션
-    deployment_group: springboot-webservice-practice-group # 웹 콘솔에서 등록한 CodeDeploy 배포 그룹
-    region: ap-northeast-2
-    wait-until-deployed: true
+# deploy:
+#   - provider: s3
+#     access_key_id: $AWS_ACCESS_KEY # Travis repo settings에 설정된 값
+#     secret_access_key: $AWS_SECRET_KEY # Travis repo settings에 설정된 값
+#     bucket: springboot-practice-jar # S3 버킷 
+#     region: ap-northeast-2
+#     skip_cleanup: true
+#     acl: private # zip 파일 접근을 private으로
+#     local_dir: deploy # before_deploy에서 생성한 디렉토리
+#     wait-until-deployed: true
 
-# CI 실행 완료 시 메일로 알람
-notifications:
-  email:
-    recipients:
-      - hswspwgod@gmail.com
+#   - provider: codedeploy
+#     access_key_id: $AWS_ACCESS_KEY # Travis repo settings에 설정된 값
+#     secret_access_key: $AWS_SECRET_KEY # Travis repo settings에 설정된 값
+#     bucket: springboot-practice-jar # S3 버킷 
+#     key: webservice-with-aws.zip # 빌드 파일을 압축해서 전달
+#     bundle_type: zip
+#     application: springboot-webservice-practice # 웹 콘솔에서 등록한 CodeDeploy 애플리케이션
+#     deployment_group: springboot-webservice-practice-group # 웹 콘솔에서 등록한 CodeDeploy 배포 그룹
+#     region: ap-northeast-2
+#     wait-until-deployed: true
+
+# # CI 실행 완료 시 메일로 알람
+# notifications:
+#   email:
+#     recipients:
+#       - hswspwgod@gmail.com
 
