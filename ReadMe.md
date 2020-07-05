@@ -3,9 +3,9 @@ Master-SpringBoot
 
 ## Examples
 
-### [Embedded Redis]([https://github.com/huewilliams/Master-SpringBoot/tree/master/%5Bexample%5Dembedded-redis](https://github.com/huewilliams/Master-SpringBoot/tree/master/[example]embedded-redis))
+### Embedded Redis
 
-**내장 Redis 데몬을 이용한 Redis Example**
+[**내장 Redis 데몬을 이용한 Redis Example**](([https://github.com/huewilliams/Master-SpringBoot/tree/master/%5Bexample%5Dembedded-redis](https://github.com/huewilliams/Master-SpringBoot/tree/master/[example]embedded-redis)))
 
 **Feature** : save, find
 
