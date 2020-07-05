@@ -21,7 +21,10 @@ repositories {
 }
 
 dependencies {
+	//spring-data-redis
 	implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+	//embedded-redis
+	compile group: 'it.ozimov', name: 'embedded-redis', version: '0.7.2'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
