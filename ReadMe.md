@@ -1,6 +1,8 @@
 Master-SpringBoot
 =============
 
+https://travis-ci.org/huewilliams/Master-SpringBoot.svg?branch=master
+
 ## Examples
 
 ### [Embedded Redis](https://github.com/huewilliams/Master-SpringBoot/tree/master/[example]embedded-redis)
