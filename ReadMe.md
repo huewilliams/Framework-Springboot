@@ -1,7 +1,7 @@
 Master-SpringBoot
 =============
 
-https://travis-ci.org/huewilliams/Master-SpringBoot.svg?branch=master
+[![Build Status](https://travis-ci.org/huewilliams/Master-SpringBoot.svg?branch=master)](https://travis-ci.org/huewilliams/Master-SpringBoot)
 
 ## Examples
 
