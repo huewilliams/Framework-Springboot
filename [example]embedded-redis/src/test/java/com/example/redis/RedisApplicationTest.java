@@ -46,4 +46,25 @@ public class RedisApplicationTest {
         assertThat(savedPoint.getId()).isEqualTo(id);
     }
 
+    @Test
+    public void update() {
+        //given
+        String id = "huewilliams";
+        LocalDateTime refreshTime = LocalDateTime.now();
+        pointRedisRepository.save(Point.builder()
+                .id(id)
+                .amount(1000L)
+                .refreshTime(refreshTime)
+                .build());
+
+        //when
+        Point savedPoint = pointRedisRepository.findById(id).get();
+        savedPoint.refresh(2000L, LocalDateTime.now());
+        pointRedisRepository.save(savedPoint);
+
+        //then
+        Point refreshPoint = pointRedisRepository.findById(id).get();
+        assertThat(refreshPoint.getAmount()).isEqualTo(2000L);
+    }
+
 }
