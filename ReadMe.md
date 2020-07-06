@@ -15,3 +15,15 @@ Master-SpringBoot
 
 **Reference** : https://jojoldu.tistory.com/297
 
+
+
+### [Spring Security JJWT](https://github.com/huewilliams/Master-SpringBoot/tree/master/[example]spring-security-jjwt)
+
+**Spring Security + JJWT로 구현한 JWT 기반 인증 Example**
+
+**Feature** : JwtTokenProvider, JwtAuthenticationFilter, WebSecurityConfig, UserDetails, CustomUserDetailService
+
+**Topic** : `Spring Security` , `io.jsonwebtoken:jjwt`
+
+**Reference** : https://webfirewood.tistory.com/m/115?category=694472
+
